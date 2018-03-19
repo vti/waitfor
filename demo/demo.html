@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>WaitFor</title>
+        <script src="require.min.js"></script>
+    </head>
+    <body>
+        <h1>My Sample Project</h1>
+
+        <script>
+            requirejs(['waitfor'], function(waitFor) {
+                waitFor.poll({
+                    path: '/',
+                    check: function(response) {
+                        return false;
+                    },
+                    maxTimeout: 10000,
+                    onfinish: function() {
+                    },
+                    ongiveup: function() {
+                        console.log('gave up!');
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
+
